@@ -574,8 +574,6 @@ int tokenEvaluator(Node* tokens, int expressionNumber, StringArray arithmeticOpe
 	return expressionType;
 }
 
-
-
 int main(int argc, char** argv) {
 	if (argc != 2) {
 		printf("incorrect number of arguments\n");
