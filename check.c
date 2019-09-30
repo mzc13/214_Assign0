@@ -408,16 +408,25 @@ int tokenEvaluator(Node* tokens, int expressionNumber, StringArray arithmeticOpe
 					printf("Error: Parse error in expression %d: unexpected operator\n\"%s\"\n", expressionNumber, ptr->value);
 					expectedToken = TERMINAL_ARITHMETIC_OPERAND;
 					operatorFound = 1;
+					if (expressionType == UNKNOWN_EXPRESSION_TYPE) {
+						expressionType = ARITHMETIC_EXPRESSION;
+					}
 					break;
 				case LOGICAL_OPERATOR:
 					printf("Error: Parse error in expression %d: unexpected operator\n\"%s\"\n", expressionNumber, ptr->value);
 					expectedToken = TERMINAL_LOGICAL_OPERAND;
 					operatorFound = 1;
+					if (expressionType == UNKNOWN_EXPRESSION_TYPE) {
+						expressionType = LOGICAL_EXPRESSION;
+					}
 					break;
 				case LOGICAL_NOT:
 					printf("Error: Parse error in expression %d: unexpected operator\n\"%s\"\n", expressionNumber, ptr->value);
 					expectedToken = TERMINAL_LOGICAL_OPERAND;
 					operatorFound = 1;
+					if (expressionType == UNKNOWN_EXPRESSION_TYPE) {
+						expressionType = LOGICAL_EXPRESSION;
+					}
 					break;
 				case ARITHMETIC_OPERAND:
 					if (previousToken != UNKNOWN_TOKEN) {
@@ -443,16 +452,25 @@ int tokenEvaluator(Node* tokens, int expressionNumber, StringArray arithmeticOpe
 					printf("Error: Parse error in expression %d: unexpected operator\n\"%s\"\n", expressionNumber, ptr->value);
 					expectedToken = TERMINAL_ARITHMETIC_OPERAND;
 					operatorFound = 1;
+					if (expressionType == UNKNOWN_EXPRESSION_TYPE) {
+						expressionType = ARITHMETIC_EXPRESSION;
+					}
 					break;
 				case LOGICAL_OPERATOR:
 					printf("Error: Parse error in expression %d: unexpected operator\n\"%s\"\n", expressionNumber, ptr->value);
 					expectedToken = TERMINAL_LOGICAL_OPERAND;
 					operatorFound = 1;
+					if (expressionType == UNKNOWN_EXPRESSION_TYPE) {
+						expressionType = LOGICAL_EXPRESSION;
+					}
 					break;
 				case LOGICAL_NOT:
 					printf("Error: Parse error in expression %d: unexpected operator\n\"%s\"\n", expressionNumber, ptr->value);
 					expectedToken = TERMINAL_LOGICAL_OPERAND;
 					operatorFound = 1;
+					if (expressionType == UNKNOWN_EXPRESSION_TYPE) {
+						expressionType = LOGICAL_EXPRESSION;
+					}
 					break;
 				case ARITHMETIC_OPERAND:
 					expectedToken = EXPRESSION_FINISHED;
@@ -481,6 +499,9 @@ int tokenEvaluator(Node* tokens, int expressionNumber, StringArray arithmeticOpe
 					}
 					printf("Error: Parse error in expression %d: unexpected operator\n\"%s\"\n", expressionNumber, ptr->value);
 					expectedToken = TERMINAL_ARITHMETIC_OPERAND;
+					if (expressionType == UNKNOWN_EXPRESSION_TYPE) {
+						expressionType = ARITHMETIC_EXPRESSION;
+					}
 					break;
 				case LOGICAL_OPERATOR:
 					if (expressionWasEnded) {
@@ -489,6 +510,9 @@ int tokenEvaluator(Node* tokens, int expressionNumber, StringArray arithmeticOpe
 					}
 					printf("Error: Parse error in expression %d: unexpected operator\n\"%s\"\n", expressionNumber, ptr->value);
 					expectedToken = TERMINAL_LOGICAL_OPERAND;
+					if (expressionType == UNKNOWN_EXPRESSION_TYPE) {
+						expressionType = LOGICAL_EXPRESSION;
+					}
 					break;
 				case LOGICAL_NOT:
 					if (expressionWasEnded) {
@@ -497,6 +521,9 @@ int tokenEvaluator(Node* tokens, int expressionNumber, StringArray arithmeticOpe
 					}
 					printf("Error: Parse error in expression %d: unexpected operator\n\"%s\"\n", expressionNumber, ptr->value);
 					expectedToken = TERMINAL_LOGICAL_OPERAND;
+					if (expressionType == UNKNOWN_EXPRESSION_TYPE) {
+						expressionType = LOGICAL_EXPRESSION;
+					}
 					break;
 				case ARITHMETIC_OPERAND:
 					if (expressionWasEnded) {
